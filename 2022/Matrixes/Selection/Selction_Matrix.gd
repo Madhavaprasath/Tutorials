@@ -87,7 +87,6 @@ func Load_model():
 		return
 	save_file.open("user://save_file.save",File.READ)
 	var data=parse_json(save_file.get_line())
-	var display_nodes=get_tree().get_nodes_in_group("Display")
 	for i in range(len(display_nodes)):
 		var current_node=display_nodes[i]
 		if current_node is Label:

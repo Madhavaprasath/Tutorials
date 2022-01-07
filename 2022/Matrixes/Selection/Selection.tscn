@@ -259,6 +259,7 @@ size_flags_horizontal = 3
 "Display",
 ]]
 position = Vector2( 273, 195 )
+rotation = 0.690934
 scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 hframes = 4

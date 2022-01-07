@@ -6,9 +6,10 @@ class_name Matrix
 var selection_vector=Vector2()
 
 func _ready():
-	pass
-
-
+	var matrix=initalize_total_value_matrix(3,3,1)
+	var matrixb=initalize_total_value_matrix(3,3,2)
+	var multiply=multiply_matrix(matrix,matrixb)
+	print_matrix(multiply)
 
 func initalize_total_value_matrix(rows,colums,value):
 	var m=[]
@@ -43,16 +44,6 @@ func print_matrix(matrix):
 		print(temp_matrix[i])
 
 
-func diagnol_matrix(matrix,arr,rows,colums):
-	var count=0
-	if (len(arr)==rows&&len(arr)==colums):
-		for i in range(rows):
-			for j in range(colums):
-				if(i==j):
-					matrix[i][j]=arr[count]
-			count+=1
-	else:
-		printerr("Cant diagonlize a non square matrix")
 
 
 
@@ -68,12 +59,11 @@ func add_matrix(arr):
 			for j in range(Factors[1]):
 				for k in range(Factors[2]):
 					result_matrix[j][k]+=arr[i][j][k]
-	print_matrix(result_matrix)
+	return result_matrix
 
 
 func equal_rows_and_colums(arr):
 	var rowlengths=get_row_count(arr)
-	print(rowlengths)
 	var first_num=rowlengths[0]
 	var isequalrows=true
 	for i in rowlengths:
@@ -115,10 +105,10 @@ func get_row_count(arr):
 
 
 func multiply_matrix(matrixa,matrixb):
-	var matrixa_row=len(get_row_count(matrixa))
-	var matrixa_colum=len(get_colum_count(matrixa))
-	var matrixb_row=len(get_row_count(matrixb))
-	var matrixb_colum=len(get_row_count(matrixb))
+	var matrixa_row=len(matrixa)
+	var matrixa_colum=len(matrixa[0])
+	var matrixb_row=len(matrixb)
+	var matrixb_colum=len(matrixb[0])
 	if(matrixa_colum==matrixb_colum):
 		var result_matrix=initalize_total_value_matrix(matrixa_row,matrixb_colum,0)
 		for i in range(matrixa_row):
