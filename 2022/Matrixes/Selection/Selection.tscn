@@ -1,0 +1,292 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Selection/7f083940eff77f617cb2557cbf04cdb4-1400x788.png" type="Texture" id=1]
+[ext_resource path="res://kenney_pixelshmup/ships.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Menu.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Selection/Selction_Matrix.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="Animation" id=2]
+length = 20.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 0.5 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[node name="Selection" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Selction_Matrix" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -197.779
+margin_top = -92.6534
+margin_right = 178.221
+margin_bottom = 95.3466
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main Container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="HBoxContainer" parent="Main Container"]
+margin_right = 1024.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 0, 96 )
+
+[node name="Label" type="Label" parent="Main Container/Header"]
+margin_right = 636.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Plane Modeling Demo"
+align = 1
+valign = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Container/Header"]
+margin_left = 640.0
+margin_right = 1024.0
+margin_bottom = 96.0
+rect_min_size = Vector2( 384, 96 )
+
+[node name="Button2" type="Button" parent="Main Container/Header/HBoxContainer"]
+margin_right = 190.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Save Model"
+
+[node name="Button3" type="Button" parent="Main Container/Header/HBoxContainer"]
+margin_left = 194.0
+margin_right = 384.0
+margin_bottom = 96.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Load Model"
+
+[node name="Configuration" type="HBoxContainer" parent="Main Container"]
+margin_top = 100.0
+margin_right = 1024.0
+margin_bottom = 548.0
+rect_min_size = Vector2( 0, 96 )
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Specs" type="VBoxContainer" parent="Main Container/Configuration"]
+margin_right = 510.0
+margin_bottom = 448.0
+size_flags_horizontal = 3
+
+[node name="Name" type="HBoxContainer" parent="Main Container/Configuration/Specs"]
+margin_right = 510.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Main Container/Configuration/Specs/Name"]
+margin_right = 314.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Type of the Craft :"
+align = 1
+valign = 1
+
+[node name="Name" type="Label" parent="Main Container/Configuration/Specs/Name" groups=[
+"Display",
+]]
+margin_left = 318.0
+margin_right = 510.0
+margin_bottom = 86.0
+rect_min_size = Vector2( 192, 0 )
+size_flags_vertical = 3
+custom_styles/normal = SubResource( 1 )
+custom_fonts/font = ExtResource( 3 )
+align = 1
+valign = 1
+
+[node name="Missile Type" type="HBoxContainer" parent="Main Container/Configuration/Specs"]
+margin_top = 90.0
+margin_right = 510.0
+margin_bottom = 176.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Missile" type="Label" parent="Main Container/Configuration/Specs/Missile Type"]
+margin_right = 253.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Missile Type :"
+align = 1
+valign = 1
+
+[node name="Type" type="Label" parent="Main Container/Configuration/Specs/Missile Type" groups=[
+"Display",
+]]
+margin_left = 257.0
+margin_right = 510.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+align = 1
+valign = 1
+
+[node name="Health" type="HBoxContainer" parent="Main Container/Configuration/Specs"]
+margin_top = 180.0
+margin_right = 510.0
+margin_bottom = 267.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Main Container/Configuration/Specs/Health"]
+margin_right = 253.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Health :"
+align = 1
+valign = 1
+
+[node name="Health" type="Label" parent="Main Container/Configuration/Specs/Health" groups=[
+"Display",
+]]
+margin_left = 257.0
+margin_right = 510.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+align = 1
+valign = 1
+
+[node name="Mobility" type="HBoxContainer" parent="Main Container/Configuration/Specs"]
+margin_top = 271.0
+margin_right = 510.0
+margin_bottom = 357.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Main Container/Configuration/Specs/Mobility"]
+margin_right = 253.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "Mobility :"
+align = 1
+valign = 1
+
+[node name="Mobility" type="Label" parent="Main Container/Configuration/Specs/Mobility" groups=[
+"Display",
+]]
+margin_left = 257.0
+margin_right = 510.0
+margin_bottom = 86.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+align = 1
+valign = 1
+
+[node name="About" type="HBoxContainer" parent="Main Container/Configuration/Specs"]
+margin_top = 361.0
+margin_right = 510.0
+margin_bottom = 448.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Main Container/Configuration/Specs/About"]
+margin_right = 253.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+text = "About"
+align = 1
+valign = 1
+
+[node name="About" type="Label" parent="Main Container/Configuration/Specs/About" groups=[
+"Display",
+]]
+margin_left = 257.0
+margin_right = 510.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 3 )
+align = 1
+valign = 1
+
+[node name="Plane" type="VBoxContainer" parent="Main Container/Configuration"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 448.0
+size_flags_horizontal = 3
+
+[node name="Sprite" type="Sprite" parent="Main Container/Configuration/Plane" groups=[
+"Display",
+]]
+position = Vector2( 273, 195 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+hframes = 4
+vframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main Container/Configuration/Plane"]
+autoplay = "Rotate_Sprite"
+anims/Rotate_Sprite = SubResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Container"]
+margin_top = 552.0
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Main Container/HBoxContainer"]
+margin_right = 924.0
+margin_bottom = 48.0
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="Main Container/HBoxContainer"]
+margin_left = 928.0
+margin_right = 1024.0
+margin_bottom = 48.0
+rect_min_size = Vector2( 96, 48 )
+size_flags_horizontal = 0
+custom_fonts/font = ExtResource( 3 )
+text = "Next"
+
+[connection signal="pressed" from="Main Container/Header/HBoxContainer/Button2" to="Selction_Matrix" method="save_model"]
+[connection signal="pressed" from="Main Container/Header/HBoxContainer/Button3" to="Selction_Matrix" method="Load_model"]
+[connection signal="pressed" from="Main Container/HBoxContainer/Button" to="Selction_Matrix" method="_on_Button_pressed"]
