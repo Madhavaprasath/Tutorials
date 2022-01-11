@@ -1,5 +1,6 @@
 extends Matrix
 class_name Rewind
+enum states{rewind,recording}
 export(int)var maximum_seconds=20
 var time_gap=1
 var maximum_times=60*20
@@ -15,8 +16,6 @@ var index=0
 func _ready() -> void:
 	set_physics_process(false)
 	time_matrix=initalize_total_value_matrix(2,2,[])
-	for i in range(1200):
-		time_matrix[0][0].append(i)
 func updateposition(pos):
 	var positions_arr=time_matrix[0][0]
 	if(len(positions_arr)>maximum_times):
@@ -26,8 +25,6 @@ func updateposition(pos):
 func _physics_process(delta: float) -> void:
 	var a
 	a=time_matrix[0][0].pop_front()
-	if(a!=null):
-		print(a)
 func _unhandled_input(event: InputEvent) -> void:
 	if(total_times<segments):
 		if(event.is_action_pressed("ui_accept")&&!already_pressed):
