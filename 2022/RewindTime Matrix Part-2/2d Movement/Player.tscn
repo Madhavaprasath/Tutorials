@@ -1,20 +1,124 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Reverse_With_x_y/Reverse_Time_X_Y.gd" type="Script" id=2]
+[ext_resource path="res://Adventurer/adventurer-Sheet.png" type="Texture" id=1]
+[ext_resource path="res://Reverse_With_x_y/Reverse_Time_X_Y.tscn" type="PackedScene" id=2]
 [ext_resource path="res://2d Movement/Player.gd" type="Script" id=3]
 
+[sub_resource type="Animation" id=4]
+resource_name = "Fall"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 22, 23 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Jump"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 16, 17 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Moving"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 12, 13 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body/icon:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 30.8392, 30.7818 )
+extents = Vector2( 8, 15 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 46, 52 )
+scale = Vector2( 2, 2 )
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
-[node name="icon" type="Sprite" parent="."]
+[node name="Reverse_Time" parent="." instance=ExtResource( 2 )]
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="icon" type="Sprite" parent="Body"]
 texture = ExtResource( 1 )
+hframes = 7
+vframes = 11
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
+root_node = NodePath("../..")
+anims/Fall = SubResource( 4 )
+anims/Idle = SubResource( 2 )
+anims/Jump = SubResource( 5 )
+anims/Moving = SubResource( 6 )
+anims/RESET = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
 shape = SubResource( 1 )
-
-[node name="Rewind" type="Node2D" parent="."]
-script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
