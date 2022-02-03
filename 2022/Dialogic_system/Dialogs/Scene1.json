@@ -1,0 +1,29 @@
+{
+"current_scene":"Scene1",
+"Characters_available":["Madhav","Rungeon","PraticalNPC"],
+"Actions":{
+            "Enterences":[
+              [
+                "Madhav":"Appear",
+                "Rungeon":"Appear",
+                "PraticalNPC":"Appear"
+              ],
+              [
+                "Madhav":"Exit"
+              ]
+            ]
+
+
+          "Dialog":[
+            [
+            "Madhav":{"Say":"Hello","expression":"calm","Animation":"calm_face"},
+            "Rungeon":{"Say":"Hey","expression":"calm","Animation":"calm_face"},
+            "PraticalNPC":"Hey hey all"
+          ],
+          [
+            "Madhav":{"Say":"Bye catch you guys later","expression":"calm","Animation":"calm_face"}
+          ]
+        ]
+
+        }
+}
