@@ -4,7 +4,7 @@
 [ext_resource path="res://Reverse_With_x_y/Reverse_Time_X_Y.tscn" type="PackedScene" id=2]
 [ext_resource path="res://2d Movement/Player.gd" type="Script" id=3]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 resource_name = "Fall"
 length = 0.2
 loop = true
@@ -38,7 +38,7 @@ tracks/0/keys = {
 "values": [ 1, 2, 3 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=3]
 resource_name = "Jump"
 length = 0.2
 loop = true
@@ -55,7 +55,7 @@ tracks/0/keys = {
 "values": [ 16, 17 ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=4]
 resource_name = "Moving"
 length = 0.6
 loop = true
@@ -72,7 +72,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11, 12, 13 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Body/icon:frame")
@@ -87,7 +87,7 @@ tracks/0/keys = {
 "values": [ 1 ]
 }
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8, 15 )
 
 [node name="Player" type="KinematicBody2D"]
@@ -110,15 +110,15 @@ frame = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
 root_node = NodePath("../..")
-anims/Fall = SubResource( 4 )
+anims/Fall = SubResource( 1 )
 anims/Idle = SubResource( 2 )
-anims/Jump = SubResource( 5 )
-anims/Moving = SubResource( 6 )
-anims/RESET = SubResource( 3 )
+anims/Jump = SubResource( 3 )
+anims/Moving = SubResource( 4 )
+anims/RESET = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
-shape = SubResource( 1 )
+shape = SubResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
